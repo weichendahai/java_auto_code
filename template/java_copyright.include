@@ -1,0 +1,4 @@
+ /**
+  * desc : ${table.tableAlias}
+  * Created by weichen on <#if now??> ${now?string('yyyy/mm/dd')}</#if>.
+  */
