@@ -4,7 +4,7 @@ package ${basepackage}.${subpackage_dir}.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import ${basepackage}.common.service.impl.BaseServiceImpl;
+import com.srsj.common.service.impl.BaseServiceImpl;
 import ${basepackage}.${subpackage_dir}.model.${className};
 import ${basepackage}.${subpackage_dir}.dao.${className}Dao;
 import ${basepackage}.${subpackage_dir}.service.${className}Service;

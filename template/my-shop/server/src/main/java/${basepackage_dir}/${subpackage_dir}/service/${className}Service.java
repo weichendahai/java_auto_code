@@ -2,7 +2,7 @@
 <#assign classNameLower = className?uncap_first>
 package ${basepackage}.${subpackage_dir}.service;
 
-import ${basepackage}.common.service.IBaseService;
+import com.srsj.common.service.IBaseService;
 import ${basepackage}.${subpackage_dir}.model.${className};
 
 <#include "/java_copyright.include">

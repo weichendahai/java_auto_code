@@ -8,10 +8,11 @@
 	</comment>
 	
 	<!--<entry key="basepackage">com.company.project</entry>-->
-	<entry key="basepackage">com.srsj</entry>
+	<!--<entry key="basepackage">com.srsj</entry>-->
+	<entry key="basepackage">com.srsj.halo</entry>
 
 	<!-- 子包,只支持单个词 -->
-	<entry key="subpackage">shop</entry>
+	<entry key="subpackage">backend</entry>
 	<!--<entry key="subpackage">manage</entry>-->
 
 	<!-- jsp namespace: web/${namespace}/${className}/list.jsp -->
@@ -22,7 +23,7 @@
 
 
 	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: t_,v_ -->
-	<entry key="tableRemovePrefixes"></entry>
+	<entry key="tableRemovePrefixes">h_,halo_</entry>
 	
 	<entry key="jdbc.username">root</entry>
 	<entry key="jdbc.password">123456</entry>
@@ -41,7 +42,7 @@
 	<entry key="java_typemapping.java.sql.Clob">String</entry>
 
 	<!-- Mysql -->
-	<entry key="jdbc.url">jdbc:mysql://172.16.14.129:3306/shopping?useUnicode=true&amp;characterEncoding=UTF-8</entry>
+	<entry key="jdbc.url">jdbc:mysql://dev002:3306/halo?useUnicode=true&amp;characterEncoding=UTF-8</entry>
 	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
 
 	<!--&lt;!&ndash; Mysql &ndash;&gt;-->
