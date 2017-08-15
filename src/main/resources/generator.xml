@@ -40,6 +40,7 @@
 	<entry key="java_typemapping.java.lang.Short">Integer</entry>
 	<entry key="java_typemapping.java.math.BigDecimal">Long</entry>
 	<entry key="java_typemapping.java.sql.Clob">String</entry>
+	<entry key="java_typemapping.java.sql.BigInt">Long</entry>
 
 	<!-- Mysql -->
 	<entry key="jdbc.url">jdbc:mysql://dev002:3306/halo?useUnicode=true&amp;characterEncoding=UTF-8</entry>

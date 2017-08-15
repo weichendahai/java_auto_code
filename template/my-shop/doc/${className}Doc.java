@@ -1,25 +1,10 @@
 <#assign className = table.className>
 <#assign classNameLower = className?uncap_first>
 <#assign tableNameAllLower = table.classNameLowerCase>
-package ${basepackage}.${subpackage_dir}.controller;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
-import java.util.Date;
-import com.srsj.common.bo.PageResponse;
-import ${basepackage}.${subpackage_dir}.bo.vo.${className}Request;
-import ${basepackage}.${subpackage_dir}.bo.po.${className}Response;
-import ${basepackage}.${subpackage_dir}.model.${className};
-import ${basepackage}.${subpackage_dir}.service.${className}Service;
 
 <#include "/java_copyright.include">
 
+@Api(value = "API - ${className}Controller", description = "${className}模块接口详情")
 @Controller
 @RequestMapping("/api/v1/${tableNameAllLower}")
 public class ${className}Controller extends BaseController {
@@ -76,7 +61,6 @@ public class ${className}Controller extends BaseController {
 		String str = callbackSuccess (r);
 		return str;
 	}
-
 	/**
 	 * @api {POST} /api/v1/${tableNameAllLower}/delete 删除数据
 	 * @apiName delete_data
@@ -110,6 +94,7 @@ public class ${className}Controller extends BaseController {
 	 * HTTP/1.1 200
 	 * {"code": -3XXX1, "message": "参数错误描述001", "data": {}}
 	 */
+	@ApiOperation(value = "${className} 删除", notes = "此接口描述xxxx<<br><hr/>", response = ${className}Response.class)
 	@RequestMapping(value = "/delete", method = RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	private String delete (@RequestBody Long id) {
@@ -198,11 +183,11 @@ public class ${className}Controller extends BaseController {
 	 *   "code": 0,
 	 *   "message": "",
 	 *   "data":{
-	 *      "page": 1             (int) 当前页索引
-	 *      "page_size": 10,      (int) 每页记录个数
-	 *      "total_count": 101,   (int) 记录总个数
-	 *      "page_count": 11,     (int) 总共页数
-	 *      "item_list":[
+	 *      "page": 1				(int) 当前页索引
+	 *		"page_size": 10,		(int) 每页记录个数
+	 *		"total_count": 101,		(int) 记录总个数
+	 *		"page_count": 11,		(int) 总共页数
+	 *		"item_list":[
 			<#list table.columns as column>
 	 *      	"${column.sqlName}": (${column.simpleJavaType}) ${column.columnAlias}
 			</#list>
@@ -216,6 +201,7 @@ public class ${className}Controller extends BaseController {
 	 * HTTP/1.1 200
 	 * {"code": -3XXX1, "message": "参数错误描述001", "data": {}}
 	 */
+	@ApiOperation(value = "${className} 列表", notes = "此接口描述xxxx<<br><hr/>", response = ${className}Response.class)
 	@RequestMapping(value = "/list", method = RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	private String list (@RequestBody ${className}Request params) {

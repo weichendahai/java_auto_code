@@ -3,19 +3,19 @@
 <#assign classNameLower = className?uncap_first> 
 package ${basepackage}.${subpackage_dir}.bo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 
 <#include "/java_copyright.include">
 
-@ApiModel(value = "${table.tableAlias}Response", description = "${table.tableAlias}Response")
 public class ${className}Response {
 
 	<#list table.columns as column>
 	// ${column.columnAlias}
-	@ApiModelProperty(value = "${column.columnAlias}")
+	<#if column.isDateTimeColumn>
+	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	</#if>
 	@JsonProperty("${column.sqlName}")
 	private ${column.simpleJavaType} ${column.columnNameLower};
 

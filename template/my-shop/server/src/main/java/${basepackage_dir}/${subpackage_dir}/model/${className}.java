@@ -12,10 +12,6 @@ public class ${className} implements Serializable {
 
 	<#list table.columns as column>
 	// ${column.columnAlias}
-	<#if column.isDateTimeColumn>
-	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-	@DateTimeFormat(pattern="yyyy-MM-dd hh:mm:ss")
-	</#if>
 	private ${column.simpleJavaType} ${column.columnNameLower};
 	</#list>
 		
