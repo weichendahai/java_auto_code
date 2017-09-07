@@ -219,7 +219,7 @@ public class ${className}Controller extends BaseController {
 	@RequestMapping(value = "/list", method = RequestMethod.POST, produces="application/json;charset=UTF-8")
 	@ResponseBody
 	private String list (@RequestBody ${className}Request params) {
-		PageResponse<${className}Response> ${classNameLower}List = ${classNameLower}Service.QueryList(params);
+		PageResponse<${className}Response> ${classNameLower}List = ${classNameLower}Service.queryByObject(params);
 		String str = callbackSuccess(${classNameLower}List);
 		return str;
 	}

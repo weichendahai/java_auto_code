@@ -29,21 +29,19 @@ public class ${className}ServiceImpl extends BaseServiceImpl<${className}Dao,${c
 	${className}Dao ${classNameLower}Dao;
 
 	@Override
-	public PageResponse<${className}Response> QueryList(${className}Request ${classNameLower}Request) {
+	public PageResponse<${className}Response> queryByObject(${className}Request ${classNameLower}Request) {
 
-//		设置查询条件
-		Map<String, Object> filter = new HashMap<String, Object>();
-		filter.put("id", ${classNameLower}Request.getId());
-//		filter.put("name", ${classNameLower}Request.getName());
+//		设置查询条件;如有非model 模型数据；自己编写 map查询条件
+		${className} ${classNameLower} = assemble${className}(${classNameLower}Request);
 
-//		初始化分页数据
+//		初始化分页数据;切进行查询数据
 		Page page = PageUtil.initPage(${classNameLower}Request.getPageRequest());
-		List<${className}> ${classNameLower}List = ${classNameLower}Dao.queryByList(filter);
+		List<${className}> ${classNameLower}List = ${classNameLower}Dao.queryByObject(${classNameLower});
 
 //		转换model 为 response data
 		List<${className}Response> myList = new ArrayList<${className}Response>();
-		for (${className} ${classNameLower} : ${classNameLower}List ) {
-			myList.add(assemble${className}(${classNameLower}));
+		for (${className} item : ${classNameLower}List ) {
+			myList.add(assemble${className}(item));
 		}
 
 		PageResponse<${className}Response> responsePageData = PageUtil.getResponsePageData(page, myList);

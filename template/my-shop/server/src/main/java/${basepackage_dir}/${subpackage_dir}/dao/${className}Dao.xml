@@ -93,6 +93,13 @@
         limit 1
     </select>
 
+	<!--根据model 查询; 返回list 结果-->
+    <select id="queryByObject" resultMap="BaseResultMap"  parameterType="Object">
+        select <include refid="Base_Column_List"/>
+        from ${table.sqlName}
+        <include refid="Base_Where_Clause"/>
+    </select>
+
 	<!--查询全部-->
 	<select id="queryAll" resultMap="BaseResultMap">
 		select

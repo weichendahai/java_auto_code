@@ -11,7 +11,7 @@ import ${basepackage}.${subpackage_dir}.model.${className};
 <#include "/java_copyright.include">
 
 public interface ${className}Service extends IBaseService<${className}> {
-	PageResponse<${className}Response> QueryList (${className}Request ${classNameLower}Request);
+	PageResponse<${className}Response> queryByObject (${className}Request ${classNameLower}Request);
 
 	${className}Response assemble${className}(${className} ${classNameLower});
 
